@@ -1,11 +1,82 @@
+<!DOCTYPE html>
 <html>
+    <head>
+	<meta charset="utf-8">
 
-<body>
+	<audio id="seikai" preload="auto">
+		<source src="pan.mp3" type="audio/mp3">
+	</audio>
 
-<h1>HELLO PCN KATSUYAMA</h1>
+        <style>
+            body {
+                background: cyan;
+            }
+            button{
+                background: forestgreen;
+            }
+            h2 {
+                color: orangered;
+            }
+            h1 {
+                color: #50f;
+            }
+            li{
+                color: #f05;
+            }
+        </style>
 
-</body>
+        <script>
+            var odai=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+            var game=0;
+            var taimu=0;
+            var i=0;
+            function susumeru(){
+                    if(game==1){
+                        taimu+=0.1
+                    console.log(taimu)
+                    setTimeout(susumeru, 100);
+                    }
+                }
+            function sokutei(){
+                taimu=0;
+                    setTimeout(susumeru, 100);
+            }
+            function ply(){
+                taimu=0;
+                var i=0;
+                if (game==0){
+                game=1;
+                alert("スタートします");
+                var a=document.getElementById('mozi')
+                a.innerHTML = odai[i]
+                document.addEventListener('keyup', (event) =>{
+                    var b=odai[i];
+                let key=event.key;
+                if (key==b){
+                    i+=1;
+		document.getElementById('seikai').play();
+                    var a=document.getElementById('mozi')
+                a.innerHTML = odai[i]
+                if (i>25){
+                    alert('全部うてましたおめでとうございます。'+Math.round(taimu * 10) / 10 + '秒です');
+                    var a=document.getElementById('mozi')
+                a.innerHTML =" ";
+                game=0;
+                }
+                }
+                }   );
+            }
+            };
+            </script>
+    </head>
 
+        <body>
+            <h1>タイピングゲームA～Z</h1>
+            <li>スタートボタンを押してください。</li>
+		<li>スタートボタンを押したらボタンの下に表示されている文字を打ってください。</li>
+	<li>正しく打てたら音がなります。</li>
+            <button onclick="ply();sokutei()">スタート</button>
+            <h2 id=mozi></h2>
+            
+        </body>
 </html>
-
-
