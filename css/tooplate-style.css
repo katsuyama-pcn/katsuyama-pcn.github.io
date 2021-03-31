@@ -164,7 +164,9 @@ button:focus {
 
 .tm-slider-img,
 .slick-slide {
+/*2021.03.31
   min-height: 250px;
+*/
 }
 
 .tm-slider-img {
