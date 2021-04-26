@@ -274,6 +274,10 @@ a {
   color: #666666;
 }
 
+.mb-1 {
+  background-color: #FFD5EC;
+}
+
 /* Loader */
 
 #loader-wrapper {
